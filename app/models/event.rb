@@ -8,12 +8,12 @@ class Event < ApplicationRecord
   # Validations
   validates :title, presence: true
   validates :date, presence: true
-  validates :start_date, presence: true
-  validates :end_date, presence: true
+  validates :start_time, presence: true
+  validates :end_time, presence: true
   validate :start_date_in_future
 
 
   def start_date_in_future
-    errors.add(:start_date, "must be in the future") if date.present? && date < Date.today
+    errors.add(:start_time, "must be in the future") if date.present? && date < Date.today
   end
 end
